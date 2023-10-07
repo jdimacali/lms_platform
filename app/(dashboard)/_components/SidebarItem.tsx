@@ -12,12 +12,12 @@ interface SidebarItemProps {
 
 const SidebarItem = ({ icon: Icon, label, href }: SidebarItemProps) => {
   const router = useRouter();
-  const pathName = usePathname();
+  const pathname = usePathname();
 
   const isActive =
-    (pathName === "/" && href === "/") ||
-    pathName === href ||
-    (pathName === href && pathName?.startsWith(`${href}/`));
+    (pathname === "/" && href === "/") ||
+    pathname === href ||
+    pathname?.startsWith(`${href}/`);
 
   const onClick = () => {
     router.push(href);

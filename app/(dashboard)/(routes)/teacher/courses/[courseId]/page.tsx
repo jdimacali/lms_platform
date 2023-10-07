@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import TitleForm from "./_components/TitleForm";
 import { IconBadge } from "@/components/IconBadge";
 import { db } from "@/lib/db";
+import DescriptionForm from "./_components/DescriptionForm";
 
 const CoursePage = async ({
   params,
@@ -61,6 +62,7 @@ const CoursePage = async ({
             <h2 className="text-xl"> Customize your course </h2>
           </div>
           <TitleForm initialData={course} courseId={course.id} />
+          <DescriptionForm initialData={course} courseId={course.id} />
         </div>
       </div>
     </div>
