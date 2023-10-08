@@ -14,7 +14,7 @@ import { Course } from "@prisma/client";
 import { FileUpload } from "@/components/FileUpload";
 
 const formSchema = z.object({
-  imageUrl: z.string().min(1, { message: "imageUrl is required" }).max(50),
+  imageUrl: z.string().min(1)
 });
 
 interface ImageFormProps {
