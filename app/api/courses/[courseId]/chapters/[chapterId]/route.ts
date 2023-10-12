@@ -124,7 +124,6 @@ export async function PATCH(
     });
 
     if (values.videoUrl) {
-      // Clean up function
       const existingMuxData = await db.muxData.findFirst({
         where: {
           chapterId: params.chapterId,
@@ -139,6 +138,7 @@ export async function PATCH(
           },
         });
       }
+
       const asset = await Video.Assets.create({
         input: values.videoUrl,
         playback_policy: "public",

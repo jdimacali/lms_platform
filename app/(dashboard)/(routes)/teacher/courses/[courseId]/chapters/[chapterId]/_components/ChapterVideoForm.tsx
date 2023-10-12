@@ -35,19 +35,19 @@ const ChapterVideoForm = ({
     setIsEditing((currentValue) => !currentValue);
   };
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    try {
-      await axios.patch(
-        `/api/courses/${courseId}/chapters/${chapterId}`,
-        values
-      );
-      toast.success("Chapter Updated");
-      toggleEdit();
-      router.refresh();
-    } catch (error) {
-      toast.error("Something went wrong");
-    }
-  }
+   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+     try {
+       await axios.patch(
+         `/api/courses/${courseId}/chapters/${chapterId}`,
+         values
+       );
+       toast.success("Chapter updated");
+       toggleEdit();
+       router.refresh();
+     } catch {
+       toast.error("Something went wrong");
+     }
+   };
 
   return (
     <div className="mt-6 border bg-slate-100 rounded-md p-4">

@@ -26,7 +26,6 @@ const formSchema = z.object({
   description: z
     .string()
     .min(1, { message: "Description is required" })
-    .max(50),
 });
 
 interface ChapterDescriptionFormProps {

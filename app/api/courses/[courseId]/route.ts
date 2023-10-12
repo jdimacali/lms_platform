@@ -10,13 +10,7 @@ const { Video } = new Mux(
 
 export async function DELETE(
   req: Request,
-  {
-    params,
-  }: {
-    params: {
-      courseId: string;
-    };
-  }
+  { params }: { params: { courseId: string } }
 ) {
   try {
     const { userId } = auth();
@@ -30,7 +24,6 @@ export async function DELETE(
         id: params.courseId,
         userId,
       },
-
       include: {
         chapters: {
           include: {
@@ -50,7 +43,7 @@ export async function DELETE(
       }
     }
 
-    const deleteCourse = db.course.delete({
+    const deleteCourse = await db.course.delete({
       where: { id: params.courseId },
     });
 
