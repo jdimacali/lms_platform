@@ -70,7 +70,7 @@ const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
           )}
         </Button>
       </div>
-      {!isEditing && <p className="h-4 w-4 mr-2 ">{initialData.title}</p>}
+      {!isEditing && <p className="h-6 mr-2 truncate">{initialData.title}</p>}
       {isEditing && (
         <Form {...form}>
           <form
